@@ -1,41 +1,34 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
 
+    private final Calculator calc = new Calculator();
+
     @Test
     void add() {
-        Calculator calculator = new Calculator();
-        int result = calculator.add(3, 5);
-        assertEquals(8, result);
+        assertEquals(5, calc.add(2, 3), "2 + 3 should equal 5");
     }
 
     @Test
     void dif() {
-        Calculator calculator = new Calculator();
-        int result = calculator.dif(8, 3);
-        assertEquals(5, result);
+        assertEquals(1, calc.dif(4, 3), "4 - 3 should equal 1");
     }
 
     @Test
     void div() {
-        Calculator calculator = new Calculator();
-        int result = calculator.div(8, 2);
-        assertEquals(4, result);
+        assertEquals(2, calc.div(4, 2), "4 / 2 should equal 2");
+        assertThrows(ArithmeticException.class, () -> calc.div(4, 0), "Division by zero should throw ArithmeticException");
+
     }
 
     @Test
     void times() {
-        Calculator calculator = new Calculator();
-        int result = calculator.times(4, 3);
-        assertEquals(12, result);
+        assertEquals(6, calc.times(2, 3), "2 * 3 should equal 6");
     }
 
     @Test
     void solver() {
-        Calculator calculator = new Calculator();
-        int result = calculator.solver();
-        assertEquals(2, result);  // (5 + 3) * 2 - 3 / 4 = 2
+        assertEquals(3, calc.solver(), "The result of the solver method should be 3");
     }
 }
