@@ -19,6 +19,7 @@ class CalculatorTest {
     void div() {
         assertEquals(2, calc.div(4, 2), "4 / 2 should equal 2");
         assertThrows(ArithmeticException.class, () -> calc.div(4, 0), "Division by zero should throw ArithmeticException");
+
     }
 
     @Test
